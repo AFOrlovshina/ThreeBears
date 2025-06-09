@@ -1,0 +1,88 @@
+{
+  "name": "Готель-Бронювання",
+  "description": "Голосовий помічник для бронювання номерів",
+  "created": "2025-06-09T10:06:12.288391",
+  "states": [
+    {
+      "id": "start",
+      "name": "Привітання",
+      "phrases": [],
+      "responses": [
+        "Вітаю! Хочете забронювати номер?"
+      ],
+      "next_state": "ask_checkin"
+    },
+    {
+      "id": "ask_checkin",
+      "name": "Дата заїзду",
+      "phrases": [
+        "так",
+        "звісно",
+        "хочу",
+        "так, хочу"
+      ],
+      "responses": [
+        "На яку дату бажаєте заїхати?"
+      ],
+      "next_state": "ask_checkout"
+    },
+    {
+      "id": "ask_checkout",
+      "name": "Дата виїзду",
+      "phrases": [],
+      "responses": [
+        "А коли плануєте виїжджати?"
+      ],
+      "next_state": "ask_guests"
+    },
+    {
+      "id": "ask_guests",
+      "name": "Кількість гостей",
+      "phrases": [],
+      "responses": [
+        "Скільки людей буде проживати?"
+      ],
+      "next_state": "ask_room"
+    },
+    {
+      "id": "ask_room",
+      "name": "Тип номера",
+      "phrases": [],
+      "responses": [
+        "Який тип номера вам потрібен: одномісний, двомісний, сімейний?"
+      ],
+      "next_state": "confirm"
+    },
+    {
+      "id": "confirm",
+      "name": "Підтвердження",
+      "phrases": [],
+      "responses": [
+        "Підтверджую: {checkin} – {checkout}, {guests} гостей, номер: {room_type}. Все вірно?"
+      ],
+      "next_state": "get_phone"
+    },
+    {
+      "id": "get_phone",
+      "name": "Контактні дані",
+      "phrases": [
+        "так",
+        "все правильно",
+        "так, все вірно"
+      ],
+      "responses": [
+        "Назвіть, будь ласка, номер телефону"
+      ],
+      "next_state": "final"
+    },
+    {
+      "id": "final",
+      "name": "Завершення",
+      "phrases": [],
+      "responses": [
+        "Дякую! Ваше бронювання збережено. Очікуйте дзвінка від адміністратора."
+      ],
+      "next_state": null
+    }
+  ]
+}
